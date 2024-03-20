@@ -302,19 +302,20 @@ public struct AlertToast: View{
                         if title != nil{
                             Text(LocalizedStringKey(title ?? ""))
                                 .font(style?.titleFont ?? Font.body.bold())
-                                .multilineTextAlignment(.center)
+                                .multilineTextAlignment(type == .regular ? .center : .leading)
                                 .textColor(style?.titleColor ?? nil)
                         }
                         if subTitle != nil{
                             Text(LocalizedStringKey(subTitle ?? ""))
                                 .font(style?.subTitleFont ?? Font.footnote)
                                 .opacity(0.7)
-                                .multilineTextAlignment(.center)
+                                .multilineTextAlignment(type == .regular ? .center : .leading)
                                 .textColor(style?.subtitleColor ?? nil)
                         }
                     }
                 }
             }
+            .lineLimit(nil)
             .padding(.horizontal, 24)
             .padding(.vertical, 8)
             .frame(minHeight: 50)
